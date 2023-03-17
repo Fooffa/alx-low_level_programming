@@ -1,9 +1,10 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include <time.h>
-/* more headers goes there*/
-/* main prints whether the number stored in the variable n is positive or negative or 0*/
-/* betty style doc for function main goes there*/
+/* more headers goes there
+* main prints whether the number stored in the variable n is positive or negative or 0
+* Return: always 0
+*/
 int main(void)
 {
 int n;
