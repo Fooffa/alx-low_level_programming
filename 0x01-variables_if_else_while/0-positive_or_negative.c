@@ -1,8 +1,8 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include <time.h>
-/* more headers goes there
-* main prints whether the number stored in the variable n is positive or negative or 0
+/**
+* main prints whether the variable n is positive or negative or 0
 * Return: always 0
 */
 int main(void)
