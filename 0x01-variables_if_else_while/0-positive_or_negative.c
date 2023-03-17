@@ -2,11 +2,12 @@
 #include<stdio.h>
 #include <time.h>
 /**
-* main prints whether the variable n is positive or negative or 0
+* main function :prints whether the variable n is positive or negative or 0
 * Return: always 0
 */
 int main(void)
 {
+/* the variable n is an integer*/
 int n;
 srand(time(0));
 n = rand() - RAND_MAX / 2;
