@@ -2,12 +2,11 @@
 #include<stdio.h>
 #include <time.h>
 /**
-* main - prints whether the last digit of n is greater than 5, less than 6 or is 0
+* main - if last digit of n is greater than 5, less than 6 or is 0
 * Return: 0
 */
 int main(void)
 {
-/* the variables n and b are integer*/
 int n, b;
 srand(time(0));
 n = rand() - RAND_MAX / 2;
