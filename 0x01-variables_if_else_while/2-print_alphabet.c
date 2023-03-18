@@ -5,7 +5,7 @@
 */
 int main(void)
 {
-int i;
+char i;
 for (i = 97; i <= 122; i++)
 {
 putchar (i);
