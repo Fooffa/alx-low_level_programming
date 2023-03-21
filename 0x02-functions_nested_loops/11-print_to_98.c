@@ -13,11 +13,11 @@ printf("%d\n", n);
 if (n < 98)
 {
 for (i = n; i <= 98; i++)
-printf("%d,\t", i);
+printf("%d, ", i);
 }
 if (n > 98)
 {
 for (i = n; i >= 98; i--)
-printf("%d,\t", n);
+printf("%d, ", i);
 }
 }
