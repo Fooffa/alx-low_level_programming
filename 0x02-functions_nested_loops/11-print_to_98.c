@@ -12,12 +12,12 @@ if (n == 98)
 printf("%d\n", n);
 if (n < 98)
 {
-for (i = n, i <= 98, i++)
+for (i = n; i <= 98; i++)
 printf("%d,\t", i);
 }
 if (n > 98)
 {
-for (i = n, i >= 98, i--)
+for (i = n; i >= 98; i--)
 printf("%d,\t", n);
 }
 }
