@@ -4,7 +4,7 @@
 * Return: 1 and prints + if number is greater than zero
 *: 0 and prints 0 if number is zero
 *: -1 and prints - if number is less than zero
-* @n: the code ascii of the character
+* @n: the argument of the function
 */
 int print_sign(int n)
 {
@@ -23,4 +23,5 @@ else if (n == 0)
 _putchar(48);
 return (0);
 }
+return (0);
 }
