@@ -15,12 +15,12 @@ for (l = 0; l <= 9; l++)
 {
 if (i >= 2 && j >= 4)
 break;
-putchar (i + 48);
-putchar (j + 48);
-putchar (':');
-putchar (k + 48);
-putchar (l + 48);
-putchar ('\n');
+_putchar (i + 48);
+_putchar (j + 48);
+_putchar (':');
+_putchar (k + 48);
+_putchar (l + 48);
+_putchar ('\n');
 }
 }
 }
