@@ -1,4 +1,5 @@
-#include "main.h"
+#include<stdio.h>
+#include<stdlib.h>
 
 /**
 * main - prints the numbers from 1 to 100,
@@ -22,9 +23,9 @@ int main(void)
 			printf("Buzz");
 		else
 			printf("%d", i);
-			_putchar(' ');
+			printf(" ");
 	}
-	putchar('\n');
+	printf("\n");
 
 	return (0);
 }
