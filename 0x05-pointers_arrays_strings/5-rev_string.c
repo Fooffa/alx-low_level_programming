@@ -1,11 +1,12 @@
 #include "main.h"
 
-/*rev_string - reverses a string.
+/**
+* rev_string - reverses a string.
 * @s : input as a string
 */
 void rev_string(char *s)
 {
-	int a = 0, b , c;
+	int a = 0, b, c;
 	char d;
 
 	while (s[a] != '\0')
