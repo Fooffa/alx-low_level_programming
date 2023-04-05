@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
 *print_chessboard - prints the chessboard
 *@a: input as a pointer
