@@ -23,13 +23,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len2++;
 	if (n > len2)
 		n = len2;
-	nconcat = malloc(len1 + n + 1);
+	nconcat = malloc(sizeof(char) * (len1 + n + 1));
 	if (nconcat == NULL)
 		return (NULL);
 	for (i = 0; i < len1; i++)
 		nconcat[i] = s1[i];
 	for (i = 0; i < n; i++)
 		nconcat[len1 + i] = s2[i];
-	nconcat[i] = '\0';
+	nconcat[len1 + i] = '\0';
 	return (nconcat);
 }
