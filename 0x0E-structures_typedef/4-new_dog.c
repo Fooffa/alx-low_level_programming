@@ -4,7 +4,6 @@
 *_strcpy - copies the string pointed to by src,
 *to the buffer pointed to by dest
 * Return: the copy as a string
-*@dest: input as a string
 *@src:input as a string
 */
 
@@ -20,7 +19,7 @@ char *_strcpy(char *src)
 	dest = malloc(sizeof(char) * (i + 1));
 	if (dest == NULL)
 		return (NULL);
-	for (j = 0; j <= i; j++)
+	for (j = 0; src[j] != '\0'; j++)
 		dest[j] = *(src + j);
 	dest[j] = '\0';
 	return (dest);
@@ -45,10 +44,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	poppy = malloc(sizeof(dog_t));
 	if (poppy == NULL)
-	{
-		free(poppy);
 		return (NULL);
-	}
 	cpyname = _strcpy(name);
 	if (cpyname == NULL)
 	{
@@ -64,6 +60,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(poppy);
 		return (NULL);
 	}
-	poppy->name = cpyname;
+	poppy->owner = cpyowner;
 	return (poppy);
 }
