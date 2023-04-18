@@ -21,6 +21,6 @@ void print_dog(struct dog *d);
 /**
  * dog_t  - Typedef for struct dog
  */
-typedef struct dog dog_t ;
+typedef struct dog dog_t;
 
 #endif /* DOG_H */
