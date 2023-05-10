@@ -47,10 +47,55 @@ void print_magic(unsigned char *identety)
 
 /**
 * print_abi - Prints the ABI version of an ELF header.
-* @identety: A pointer to an array containing the ELF ABI version.
+* @ident: A pointer to an array containing the ELF ABI version.
 */
-void print_abi(unsigned char *e_ident)
+void print_abi(unsigned char *ident)
 {
-	printf(" ABI Version: %d\n", e_ident[EI_ABIVERSION]);
+	printf(" ABI Version: %d\n", ident[EI_ABIVERSION]);
 }
+/**
+ * main - Displays the information contained in the
+ * ELF header at the start of an ELF file.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
+ *
+ * Return: 0 on success.
+ *
+ * Description: If the file is not an ELF File or
+ * the function fails - exit code 98.
+ */
+int main(int __attribute__((__unused__)) argc, char *argv[])
+{
+	Elf64_Ehdr *header;
+	int fd, rd;
 
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't open %s\n", argv[1]);
+		exit(98);
+	}
+	header = malloc(sizeof(Elf64_Ehdr));
+	if (header == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read the file %s\n", argv[1]);
+		exit(98);
+	}
+	rd = read(fd, header, sizeof(Elf64_Ehdr));
+	if (r == -1)
+	{
+		free(header);
+		close_elf(fd);
+		dprintf(STDERR_FILENO, "Error: Can't read the file %s\n", argv[1]);
+		exit(98);
+	}
+
+	check_elf(header->e_ident);
+	printf("ELF Header:\n");
+	print_magic(header->e_ident);
+	print_abi(header->e_ident);
+
+	free(header);
+	close_elf(fd);
+	return (0);
+}
