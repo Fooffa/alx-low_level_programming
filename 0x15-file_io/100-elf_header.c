@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <elf.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-void check_elf(unsigned char *ident);
+void check_elf(unsigned char *identety);
 void print_magic(unsigned char *identety);
-void print_abi(unsigned char *e_ident);
+void print_abi(unsigned char *identety);
 
 /**
 * check_elf - Checks if a file is an ELF file.
@@ -47,11 +49,11 @@ void print_magic(unsigned char *identety)
 
 /**
 * print_abi - Prints the ABI version of an ELF header.
-* @ident: A pointer to an array containing the ELF ABI version.
+* @identety: A pointer to an array containing the ELF ABI version.
 */
-void print_abi(unsigned char *ident)
+void print_abi(unsigned char *identety)
 {
-	printf(" ABI Version: %d\n", ident[EI_ABIVERSION]);
+	printf(" ABI Version: %d\n", identety[EI_ABIVERSION]);
 }
 /**
  * main - Displays the information contained in the
@@ -67,7 +69,7 @@ void print_abi(unsigned char *ident)
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
-	int fd, rd;
+	int fd, rd, c;
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
@@ -82,10 +84,10 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 	rd = read(fd, header, sizeof(Elf64_Ehdr));
-	if (r == -1)
+	if (rd == -1)
 	{
 		free(header);
-		close_elf(fd);
+		close(fd);
 		dprintf(STDERR_FILENO, "Error: Can't read the file %s\n", argv[1]);
 		exit(98);
 	}
@@ -96,6 +98,13 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	print_abi(header->e_ident);
 
 	free(header);
-	close_elf(fd);
+	c = close(fd);
+	if (c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", fd);
+		exit(98);
+	}
+
+
 	return (0);
 }
